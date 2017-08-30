@@ -8,6 +8,6 @@ method of continous to digital conversion. or (s->z) mapping.
 
 All the rest files test.c is example how to use the functions. It is not necessary to model
 your plant in main function as done in test.c. The response1.bmp, response2.bmp, response3.bmp
-shows the ac and step response of plant with pid controller plot by gnuplot in terminal window.
+shows the ac and step response of plant with pid controller. All the response graphs are plotted in gnuplot.
 
 
