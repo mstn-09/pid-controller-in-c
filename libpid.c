@@ -1,10 +1,11 @@
 /*
- *         By : Yared Tadesse
+ *  
+ * @author : Yared Tadesse
  *
- *         12:56 PM Sunday,Aug 27,2017 GC
+ * @date : 12:56 PM Sunday,Aug 27,2017 GC
  *	   Misht 6:00, Kedamit sembet,Nehase 20,2009 EC
  *         Addis Ababa ,Ethiopia
- * Reference:
+ * @reference:
  * 1.	PID controller-Wikipedia, the free encyclopedia https://en.wikipedia.org/wik
  * 	i/PID_controller ..07/26/2016 02:06PM
  * 2.	Karl Johan Astrom and Richard M. Murray ,"Feedback systems : an introduction
