@@ -5,28 +5,35 @@
 
 #define NUM_PNTS 150
 #define NUM_CMND 2
-
+/*
+ * suppose we have to pid controller for different plants plant1 and plant2
+ * and corrosponding pid controller pid1 and pid2
+ */
 pidc_t pid1,pid2;
 
 int main(){
-
-	double yk,ykminus1,ck;
+	
+	double yk,ykminus1; /* variable for handling status of plant output */
+	double ck;
 	int k=0;
 	ykminus1=0;
 
 	//plant  sy(s)=u(s)-y(s)
 	// y[n+1]=u[n]-y[n]
 	//u[n]=1 step input of the system
-
+	/* ploting reposnse of plant in gnuplot. it work if gnuplot is installed in your linux desktop enviroment */
 	char *cmd_gnuplot[]={"set title \"Input r(k)= 1.5 u(k),Plant = 1/(s+1), response\"","plot'data1.temp' with points pointtype 1"};
 	FILE * temp = fopen("data1.temp","w");
 	FILE * gnuplotPipe = popen("gnuplot -persistent","w");
-
+	/* setting the basic configuration for plant1 controller */
 	set_reference(&pid1,1.5);
 	input_range(&pid1,-3,3);
 	output_range(&pid1,-4,4);
+	/* set the intial value of plant for controller pid1 */
 	initialize(&pid1,0.0,0.0,0.0,0.0);
-
+	/* loop wich model plant and response for this case only 
+	 * it is infinite loop of microcontroller or processor eg. while(1){...} or void loop(){..arduino..}
+	*/
 	for(k=0;k<NUM_PNTS;k++){
 		//set_reference(&pid1,2*sin(50*k));
 		if(k==0) set_feedback(&pid1,ykminus1);
